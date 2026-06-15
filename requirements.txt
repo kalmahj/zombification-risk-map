@@ -1,0 +1,6 @@
+geopandas
+pandas
+numpy
+folium
+branca
+scikit-learn
