@@ -1,4 +1,4 @@
-# 🧟 Zombification Risk Mapping — France
+# Zombification Risk Mapping — France
 
 > A tutorial on how to build a **zombification risk map** scored per IRIS in France using open data from BDTOPO, INSEE, and OpenStreetMap.
 
@@ -9,24 +9,24 @@
 
 ---
 
-## 📖 Project Description
+## Project Description
 
 This script is a tutorial on how to build a **zombification risk map** with a composite score per [IRIS](https://www.insee.fr/fr/metadonnees/definition/c1523) (France's finest infra-communal statistical unit).
 
 All you need to do is **enter the INSEE code** of any commune in France and the script will generate a choropleth risk map automatically.
 
-### 🧮 How the Zombie Score Is Computed
+### How the Zombie Score Is Computed
 
 The higher the score, the **more dangerous** the IRIS:
 
 | Factor | Weight | Logic |
 |--------|--------|-------|
-| 🪦 Number of cemeteries in the IRIS & proximity to the nearest one | **×0.35** | More cemeteries & closer = more undead spawns |
-| ✈️ Proximity to an airport / airfield | **×0.20** | Closer = faster pandemic spread |
-| 👥 Population density | **×0.15** | Higher density = more targets |
-| 👴 Ratio of people aged 75+ | **×0.10** | Higher ratio = more vulnerable population |
-| ♿ Number of disabled people (AAH recipients) | **×0.10** | Higher count = more vulnerable population |
-| 🔫 Proximity to a weapon shop | **×0.10** | Closer = paradoxically more dangerous (looting, chaos) |
+| Number of cemeteries in the IRIS & proximity to the nearest one | **×0.35** | More cemeteries & closer = more undead spawns |
+| Proximity to an airport / airfield | **×0.20** | Closer = faster pandemic spread |
+| Population density | **×0.15** | Higher density = more targets |
+| Ratio of people aged 75+ | **×0.10** | Higher ratio = more vulnerable population |
+| Number of disabled people (AAH recipients) | **×0.10** | Higher count = more vulnerable population |
+| Proximity to a weapon shop | **×0.10** | Closer = paradoxically more dangerous (looting, chaos) |
 
 Each factor is **normalised between 0 and 1** using `MinMaxScaler`, then combined into a weighted score:
 
@@ -44,7 +44,7 @@ population_iris['zombie_score'] = (
 
 ---
 
-## 🗂️ Datasets Used
+## Datasets Used
 
 | Dataset | Source | File |
 |---------|--------|------|
@@ -56,11 +56,11 @@ population_iris['zombie_score'] = (
 | Weapon shops | [OpenStreetMap (OSM)](https://www.openstreetmap.org/) | `data/weapon_shops.geojson` |
 | IRIS contours | [IGN CONTOURS-IRIS 2022](https://geoservices.ign.fr/contoursiris) | `data/CONTOURS-IRIS_2-1__SHP__FRA_2022-01-01/` |
 
-> ⚠️ **Note:** Some large datasets (`CONTOURS-IRIS .shp`, `cimetieres.gpkg`, `base-ic-evol-struct-pop-2022.CSV`) exceed GitHub's 100 MB file limit and are **not included** in this repository. You will need to download them manually from the links above and place them in the `data/` folder.
+> **Note:** Some large datasets (`CONTOURS-IRIS .shp`, `cimetieres.gpkg`, `base-ic-evol-struct-pop-2022.CSV`) exceed GitHub's 100 MB file limit and are **not included** in this repository. You will need to download them manually from the links above and place them in the `data/` folder.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -112,7 +112,7 @@ The script will generate a `zombie_map.html` file — open it in your browser to
 
 ---
 
-## 🐍 Code Walkthrough
+## Code Walkthrough
 
 The main script `zombification.py` follows these steps:
 
@@ -221,7 +221,7 @@ zombie_map.save('zombie_map.html')
 
 ---
 
-## 📸 Preview
+## Preview
 
 | Terminal Prompt | Generated Map |
 |:-:|:-:|
@@ -229,7 +229,7 @@ zombie_map.save('zombie_map.html')
 
 ---
 
-## 📚 Libraries Used
+## Libraries Used
 
 | Library | Purpose |
 |---------|---------|
@@ -242,16 +242,9 @@ zombie_map.save('zombie_map.html')
 
 ---
 
-## 📝 License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👤 Author
+## Author
 
 **Kalma Hazara**
 
 ---
 
-*Made with 🧟 and Python*
